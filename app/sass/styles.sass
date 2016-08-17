@@ -1,5 +1,139 @@
 // styles.sass
+$color-menu-background: #130326
+$color-main-background-gradient: linear-gradient(to right, rgba(0, 0, 0, 0) 20%, rgba(97, 0, 105, 0.4) 100%)
+@import 'https://fonts.googleapis.com/css?family=Montserrat'
+@font-face
+  font-family: Market /* Гарнитура шрифта */
+  src: url(../fonts/market.ttf) /* Путь к файлу со шрифтом */
+
+=toggle-item
+  border-radius: 1px
+  height: 3px
+  width: 20px
+  background: white
+  position: absolute
+  display: block
+  content: ''
+  transition-duration: 2s
 body
-  background: red
-  width: 100%
-  height: 100%
+  margin: 0
+.main
+  display: flex
+  flex-direction: row
+  height: 920px
+  .main-header
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    width: 80px
+    background: $color-menu-background
+    padding-top: 30px
+    .nav
+      .nav-toggle
+        display: flex
+        position: relative
+        margin-top: 20px
+        height: 100%
+
+        span
+          position: absolute
+          top: 0
+          left: 27px
+          +toggle-item
+
+          &:after
+            +toggle-item
+            bottom: -7px
+
+          &:before
+            +toggle-item
+            top: -7px
+
+      &:hover span
+        background-color: transparent
+        transition-duration: 1s
+      &:hover span
+        &:after
+          transform: rotate(-45deg)
+          transition-duration: 1s
+      &:hover span
+        &:before
+          transform: rotate(45deg)
+          transition-duration: 1s
+
+
+    .about-menu
+      color: white
+      transform: translateX(-88px) rotate(-90deg)
+      width: 260px
+
+  .main-list
+    display: flex
+    flex-grow: 2
+    flex-direction: column
+    background: rgba(0,0,0,0.6) url("../img/layer 6.jpg") no-repeat
+    background-size: cover
+
+    .main-title
+      display: flex
+      flex-direction: column
+      flex-grow: 5
+      justify-content: center
+      align-items: center
+      font-family: 'Montserrat', sans-serif
+      font-weight: bold
+      text-transform: uppercase
+      letter-spacing: -9px
+      font-size: 132px
+      line-height: 102px
+      color: white
+      position: relative
+
+      .circle
+        position: absolute
+        width: 110px
+        height: 110px
+        border: solid 10px white
+        border-radius: 50%
+        top: 45%
+        left: 46%
+        background: rgba(0, 0, 0, .7)
+        box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.7)
+        font-family: 'Market', sans-serif
+        letter-spacing: 0px
+        transform: rotate(-20deg)
+        font-size: 40px
+        letter-spacing: -3
+        text-transform: none
+        line-height: 90px
+        align-items: center
+        padding-left: 13px
+        box-sizing: border-box
+        cursor: pointer
+        transition-duration: 2s
+        &:hover
+          background: rgba(0, 0, 0, .9)
+          box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.9)
+          transition-duration: 2s
+    .main-about
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      padding: 0 65px 0 118px
+      .about-left
+        display: flex
+        flex-direction: column
+      .about-right
+        display: flex
+
+.about-title
+  font-family: 'Montserrat', sans-serif
+  font-weight: bold
+  font-size: 24px
+  line-height: 25px
+  color: white
+.about-text
+  font-family: 'Montserrat', sans-serif
+  font-size: 13px
+  line-height: 25px
+  color: white
